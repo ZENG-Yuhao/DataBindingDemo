@@ -17,17 +17,14 @@ public class User {
     }
 
     public String getEmail() {
-
         return email;
     }
 
     public String getName() {
-
         return name;
     }
 
     public void setName(String name) {
-
         this.name = name;
     }
 
