@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data class="EventHandlingBinding">
+
+        <variable
+            name="user"
+            type="com.example.enzo.databindingdemo.BidirectionBinding.ObservableUser"/>
+
+        <variable
+            name="handler"
+            type="com.example.enzo.databindingdemo.EventHandling.EventHandler"/>
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name : "
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/txt_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{user.name}"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email : "
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/txt_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{user.email}"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_new_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="bind new User"/>
+
+
+        <Button
+            android:id="@+id/btn_simple_click"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{handler::onClick}"
+            android:text="Simple Click Event"/>
+
+        <Button
+            android:id="@+id/btn_click_with_arg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->handler.onClickWithArg(user)}"
+            android:text="Click Event With Argument"/>
+    </LinearLayout>
+</layout>

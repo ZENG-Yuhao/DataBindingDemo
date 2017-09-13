@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data class="UserListItemBinding">
+
+        <variable
+            name="user"
+            type="com.example.enzo.databindingdemo.BidirectionBinding.ObservableUser"/>
+    </data>
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:background="@android:color/holo_orange_dark"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="32dp">
+
+        <EditText
+            android:id="@+id/edtxt_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="name"
+            android:text="@={user.name}"/>
+
+        <EditText
+            android:id="@+id/edtxt_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="email"
+            android:text="@={user.email}"/>
+
+        <Button
+            android:id="@+id/btn_view_underlying_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View Underlying Data"
+            android:textAllCaps="false"/>
+    </LinearLayout>
+</layout>
